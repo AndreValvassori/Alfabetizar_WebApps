@@ -1,0 +1,73 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "fcz.Aprender.newwebapp"
+        }
+    }
+}

@@ -1,0 +1,231 @@
+.hidden{
+    display: none;
+}
+.page{
+    background: #64b5f6;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+#telaCadastro{
+    background: #64b5f6;
+}
+
+.navbar{
+    background: blue;
+    width: 100%;
+    height: 35px;
+}
+.navbar span{
+    font-size: 35px;
+}
+
+.login_Background{
+    display:table;
+    background: #fff  
+    width:70%;
+    margin: 0px auto;   
+}
+
+.camposCadastro{
+    align-content: center;
+    width: 80%;
+}
+
+.Cabecalho{
+    font-size: 14px;
+    font-style: oblique;
+    color: black;        
+}
+
+#FotoeNome{
+    float: left;
+    width: 30%;
+    height: 15%;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+#Pontuacao{
+    width: 40%;
+    height: 15%;
+}
+
+#TextoCentralizado{
+    text-align: center;
+    font-weight: bold;
+}
+
+#CabecalhoLicao{
+    margin: 1%;    
+}
+
+#Temporizador{
+    float: right;
+    width: 30%;
+    height: 15%;
+}
+
+#execSound{
+    width: auto;
+    height: 20%;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;    
+    margin-top: 10%;
+    background-color: red;
+    
+}
+
+#conteudoOpcoesLicao{
+    margin-top: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+#btn_Confirma{
+    top: 90%;
+    width: auto;
+    height: 20%;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;  
+    
+}
+
+.TextAlignRight{
+    text-align: right;
+}
+.TextAlignLeft{
+    text-align: left;
+}
+
+.tabela{
+    border: 0px;
+    margin: 5px;
+}
+
+.espacador20{
+    margin-top: 20%;
+    width: 100%;
+}
+.espacador40{
+    margin-top: 40%;
+    width: 100%;
+}
+
+.imgCentralizada{    
+    position: absolute;
+    left: 50%;
+    margin-left: -32px;    
+    background-color: red;
+}
+
+.btnFullAlignLeft{
+    margin: 5;
+    float: left;
+    height: 30;
+    width: 33%;
+    
+}
+.btnFullAlignCenter{
+    margin: 5;
+    float: left;
+    width: 34%;
+    height: 30;
+    
+}
+.btnFullAlignRight{
+    margin: 5;
+    float: right;
+    height: 30;
+    width: 33%;
+    
+}
+
+.btn1{
+    margin: 15;
+    float: left;
+    height: 50px;
+}
+
+.btn2{
+    margin: 15;
+    float: right;
+    height: 50px;
+}
+
+.btn3{
+    margin: 15;
+    float: left;
+    height: 50px;
+}
+
+.btn4{
+    margin: 15;
+    float: right;
+    height: 50px;
+}
+[type="radio"]:not(:checked), [type="radio"]:checked {
+     position: relative; 
+     opacity: 1; 
+}
+
+.container{
+  margin: 20px auto;
+  width:200px;
+  height:200px;
+  //background-color:#fff;
+  display:grid;
+  grid-template-columns: 45% 45%;
+  grid-row: auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  .box{
+    background-color:#333;
+    padding:20px;
+    border-radius:10px;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    font-family:sans-serif;
+  }
+
+}
+
+.altbox{
+    width: auto;    
+}
+
+
+.imgcentro
+{
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.radiu{    
+    border: 2px solid black;
+    border-radius: 5px;
+    padding:10px;
+}
+
+.radiun{    
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.eleft20{
+    margin-left: 13%;
+}
+
+.eleft25{
+    margin-left: 25%;
+}
+.btnCadastro{
+    width: 100%;
+}
