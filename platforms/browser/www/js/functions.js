@@ -1,13 +1,20 @@
-//var baseUrl = "http://192.168.0.100/aprender/Consulta.php";
+    //var baseSoundURL = "http://192.168.0.100/aprender/audio/";
+    var baseSoundURL = "http://131.153.30.162/aprender/audio/";
+// Local
+    //var baseUrl = "http://192.168.0.100/aprender/Consulta.php";
+// Externo - VPS 23/12
+    var baseUrl = "http://131.153.30.162/aprender/Consulta.php";
+
 var telaAtual;
 //var baseUrl = "http://192.168.0.100/ws_aprender/";
-var baseUrl = "https://aprenderwebapps.azurewebsites.net/Consulta.php";
+//var baseUrl = "https://aprenderwebapps.azurewebsites.net/Consulta.php";
 
 var currentLicao;
 var currentfase = 1;
 var dependentes = make2DArray(5,7);
 var dependenteAtual;
 var respostasQuestao = make2DArray(1,2);
+
 var Licao = make2DArray(1,6); 
 var Alternativa = make2DArray(4,4);  
 
@@ -48,9 +55,19 @@ document.getElementById('BotaoExcluir').onclick = function(){
                 error: function(xhr, status, error) {
                     console.log(xhr.responseText);         
                     alert("Houve um erro ao excluir esse dependente!");
+                    /*swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Houve um erro ao excluir esse dependente! ' + xhr.responseText
+                    });*/
+                    
                 },
                 success: function(response) {
                     alert("Dependente excluido!");
+                    /*swal({
+                        type: 'success',
+                        title: 'Dependente excluido com sucesso!',
+                    });                    */
                     CarregarDependentes(localStorage.getItem("User_ID"));
                     MostraTela("telaDependentes");
                 }
@@ -75,6 +92,31 @@ window.onload = function() {
 
 };
 
+function playMyAudio()
+{
+    try {
+    var myaudio = new Audio('http://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3');
+    myaudio.id = 'playerMyAudio';
+    myaudio.play();
+  } catch (e) {
+    alert('no audio support!');
+  } 
+}
+
+function myPlayAudio(AudioName)
+{
+    try 
+    {        
+        console.log(baseSoundURL+AudioName+".mp3");
+        var myaudio = new Audio(baseSoundURL+AudioName+".mp3");
+        myaudio.id = 'playerMyAudio';
+        myaudio.play();
+    } catch (e) 
+    {
+        alert('no audio support!');
+    }   
+}
+
 function logout(){    
     console.log('logout');
         localStorage.setItem("User_Logado",0);        
@@ -96,6 +138,7 @@ function login() {
     
     var url = baseUrl + "?Tela=Login&Procedure=fncLogin&Login=" + ulogin + "&Senha=" + usenha;
     
+    console.log(url);
     
     $.ajax({
         type: "GET",
@@ -109,8 +152,14 @@ function login() {
         },
                 error: function(xhr, status, error) {
                     console.log(xhr.responseText);                    
+/*                    swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Não foi possível autenticar esse usuário! Verifique o Login e Senha! '+xhr.responseText
+                    });*/
+                    
                     alert(xhr.responseText);
-            alert("Não foi possivel autenticar esse usuário! Verifique o Login e Senha!");
+//            alert("Não foi possivel autenticar esse usuário! Verifique o Login e Senha!");
         },
         success: function (retorno) {
             var registros = retorno;
@@ -151,7 +200,7 @@ function ShowCadastroDependente(){
 function OuvirSom()
 {
     console.log("Click: Ouvir Som!");    
-    playAudio(Licao[0][4]);
+    myPlayAudio(Licao[0][4]);
 }
 function CarregarDependentes(id)
 {    	
@@ -167,6 +216,13 @@ function CarregarDependentes(id)
                 error: function(xhr, status, error) {
                     //console.log(xhr.responseText);
                     alert("Não foi possivel Carregar seus dependentes!");
+/*                    swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Não foi possível carregar seus dependentes!'
+                    });*/
+                    
+                    location.reload;
                     
                 },
                 success: function(retorno) {
@@ -222,6 +278,12 @@ function CarregaTelaLicoes(id){
                 error: function(xhr, status, error) {
                     //console.log(xhr.responseText);
                     alert("Não foi possivel Carregar as Lições!");
+/*                    swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Não foi possível carregar as lições!'
+                    });*/
+                    
                     MostraTela("telaDependentes");                    
                 },
                 success: function(retorno) {                    
@@ -267,7 +329,7 @@ function CarregarLicao(id)
     console.log(currentfase);
     console.log(currentLicao);
     
-    if(currentfase == 6) { CarregaTelaLicoes(dependentes[dependenteAtual][0]); }
+    if(currentfase == 11) { CarregaTelaLicoes(dependentes[dependenteAtual][0]); }
     
     var url = baseUrl + "?Procedure=fncCarregarLicao&id="+id+"&fase="+currentfase;
     console.log(url);
@@ -281,6 +343,12 @@ function CarregarLicao(id)
                 error: function(xhr, status, error) {
                     console.log(xhr.responseText);
                     alert("Não foi possivel Carregar as Lições!");
+                    /*swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Não foi possível carregar as lições!'
+                    });*/
+                    
                     //MostraTela("telaDependentes");                    
                 },
                 success: function (retorno) {
@@ -308,7 +376,13 @@ function CarregarLicao(id)
                                 error: function(xhr, status, error) {
                                     console.log(xhr.responseText);
                                     alert("Não foi possivel Carregar as Alternativas!");
-                                    //MostraTela("telaDependentes");                    
+                                    /*swal({
+                                        type: 'error',
+                                        title: 'Oops...',
+                                        text: 'Não foi possível carregar as Alternativas!'
+                                    });*/
+                                    
+                                    MostraTela("telaDependentes");                    
                                 },
                                 success: function (retorno) {
                                     var contador = 0;
@@ -328,14 +402,22 @@ function CarregarLicao(id)
                                     if(Alternativa.length == 4)
                                     {
                                         
-                                        if(Licao[0][5]== 1){                                            
+                                        if(Licao[0][4] == '')
+                                        {                                          
+                                            document.getElementById("playsound").classList.add('hidden');                                                
+                                        }
+                                        else{                                                                                    
+                                            document.getElementById("playsound").classList.remove('hidden');
+                                        }
+                                        
+                                        /*if(Licao[0][5]== 1){                                            
                                             document.getElementById("Enunciado_2").classList.remove('hidden');                                            
                                             document.getElementById("playsound").classList.add('hidden');
                                         }
                                         else{                                            
                                             document.getElementById("Enunciado_2").classList.add('hidden');                                            
                                             document.getElementById("playsound").classList.remove('hidden');
-                                        }   
+                                        } */  
                                             
                                         
                                         document.getElementById("NomeDependente").innerHTML = dependentes[dependenteAtual][2];          
@@ -400,11 +482,21 @@ function Cadastro(){
         cache: false,
                 error: function(xhr, status, error) {
                     console.log(xhr.responseText);                    
+                    
                     alert(xhr.responseText);
+                    /*swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Não foi possível completar seu cadastro!'
+                    });*/
                     //alert("Não foi possivel cadastrar!");
                 },
                 success: function(response) {
-					alert("Cadastro realizado!");
+                            alert("Cadastro realizado!");
+                    /*swal({
+                        type: 'success',
+                        title: 'Cadastro realizado com sucesso!',
+                    });*/
                     location.reload();
                 }
             });
@@ -453,7 +545,11 @@ function enviarresposta(){
                 error: function(xhr, status, error) {
                     console.log(xhr.responseText);                    
                     alert(xhr.responseText);
-                    //alert("Não foi possivel cadastrar!");
+                    /*swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Não foi possível enviar as respostas! ' + xhr.responseText
+                    });*/
                 },
                 success: function(response) {
                     currentfase ++;
@@ -497,9 +593,20 @@ function cadastroDependente()
                 error: function(xhr, status, error) {
                     console.log(xhr.responseText);                    
                     alert(xhr.responseText);
+/*                    swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Não foi possível cadastrar o dependente! ' + xhr.responseText
+                    });*/
+                    
                 },
                 success: function(response) {
 					alert("Cadastro realizado!");
+                    /*swal({
+                        type: 'success',
+                        title: 'Cadastro realizado com sucesso!',
+                    });*/
+                    
                     location.reload();
                 }
             });
